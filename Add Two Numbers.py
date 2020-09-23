@@ -1,4 +1,5 @@
 '''
+https://leetcode.com/problems/add-two-numbers/
 You are given two non-empty linked lists representing two non-negative integers. The digits are stored in reverse order
 and each of their nodes contain a single digit. Add the two numbers and return it as a linked list.
 
@@ -12,15 +13,17 @@ Explanation: 342 + 465 = 807.
 '''
 
 
+
 # Definition for singly-linked list.
 class ListNode:
     def __init__(self, val=0, next=None):
         self.val = val
         self.next = next
 
-
+# This adds the numbers in each node one by one, starting with the lowest magnitude and moving up, making sure to carry any 1's
+# O(max(n,m)) where n,m represent the length of the two linked lists
 class Solution:
-    # Fastest solution I could find
+    # Add numbers each node at a time, carrying any remainder
     def addTwoNumbers(self, l1: ListNode, l2: ListNode, c=0) -> ListNode:
         # DUH, the smallest digits are first we can just mimic elementary math
 
@@ -51,7 +54,7 @@ class Solution:
 
 
 
-
+    # This turns both lists into numbers, adds them, then changes them back into lists
     def addTwoNumbers_TraverseLongestList(self, l1: ListNode, l2: ListNode) -> ListNode:
 
         # Lists must be non empty
